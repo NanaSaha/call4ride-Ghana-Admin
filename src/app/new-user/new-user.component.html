@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-12">
+        <div class="content-header">New User</div>
+    </div>
+</div>
+<!-- Basic Inputs start -->
+<section id="basic-input">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Create New User</h4>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <form [formGroup]="registerForm">
+                            <div class="form-group">
+                                <input type="text" formControlName="name" class="form-control mb-2" placeholder="Name" required>
+                                <div *ngIf="registerFormSubmitted && (rf.name.invalid || rf.name.errors?.required)"
+                                    class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Name is
+                                    required</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" formControlName="email" class="form-control mb-2" placeholder="Email"
+                                    [ngClass]="{ 'is-invalid': registerFormSubmitted && rf.email.invalid, 'is-valid': registerFormSubmitted && !rf.email.invalid }"
+                                    required>
+                                <div *ngIf="registerFormSubmitted && (rf.email.errors?.required)" class="help-block mt-1 text-danger"> <i
+                                        class="ft-alert-circle align-middle"></i> Email is
+                                    required</div>
+                                <div *ngIf="registerFormSubmitted &&  rf.email.errors?.email" class="help-block mt-1 text-danger"> <i
+                                        class="ft-alert-circle align-middle"></i> Email must be a valid email address</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" formControlName="password" class="form-control mb-2" placeholder="Password"
+                                    [ngClass]="{ 'is-invalid': registerFormSubmitted && rf.password.invalid, 'is-valid': registerFormSubmitted && !rf.password.invalid }"
+                                    required>
+                                <div *ngIf="registerFormSubmitted && (rf.password.errors?.required)" class="help-block mt-1 text-danger"> <i
+                                        class="ft-alert-circle align-middle"></i> Password is
+                                    required
+                                </div>
+                                <div *ngIf="registerFormSubmitted && (!rf.password.errors?.required && rf.password.errors?.minlength)"
+                                    class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Password must be
+                                    at least 6 characters
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" formControlName="confirmPassword" class="form-control mb-2"
+                                    placeholder="Confirm Password"
+                                    [ngClass]="{ 'is-invalid': registerFormSubmitted && rf.confirmPassword.invalid, 'is-valid': registerFormSubmitted && !rf.confirmPassword.invalid }"
+                                    required>
+                                <div *ngIf="registerFormSubmitted && (rf.confirmPassword.errors?.required)" class="help-block mt-1 text-danger">
+                                    <i class="ft-alert-circle align-middle"></i> Confirm Password is
+                                    required
+                                </div>
+                                <div *ngIf="registerFormSubmitted && (rf.confirmPassword.errors?.mustMatch)"
+                                    class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Passwords must
+                                    match
+                                </div>
+                            </div>
+                        
+                            <!-- ROLE -->
+                            <div class="form-group">
+                        
+                        
+                                <select placeholder="Select A Role" formControlName="role" class="form-control mb-2">
+                                    <option value="Super Admin">Super Admin
+                                    </option>
+                                    <option value="Sub Admin">Sub Admin
+                                    </option>
+                                </select>
+                        
+                        
+                            </div>
+                        
+                            <!-- ROLE END -->
+                        
+                            <div class="d-flex justify-content-between flex-sm-row flex-column">
+                                <!-- <a [routerLink]="['/pages/login']" class="btn bg-light-primary mb-2 mb-sm-0">Back To Login</a> -->
+                                <a class="btn btn-primary" (click)="onSubmit()">Create New User</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Basic Inputs end -->

@@ -1,0 +1,65 @@
+<div class="row match-height">
+  <div class="col-xl-12 col-lg-12 col-12">
+    <div class="card shopping-cart">
+      <div class="card-header pb-2">
+        <h4 class="card-title mb-1">Campaigns</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table text-center m-0">
+              <thead>
+                <tr>
+                  <th>Campaign description</th>
+                  <th>Campaign Amount</th>
+                  <th>Hours to drive</th>
+                  <th>Trips to be completed</th>
+                  <th>Date</th>
+
+            
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of campaign_item">
+                  <td>{{ item.description }}</td>
+                  <td>GHC {{ item.amount }}</td>
+                  <td>{{ item.hours }}</td>
+                  <td>{{ item.no_trips }}</td>
+                  <td>{{ item.date }}</td>
+  <button class="btn btn-danger" (click)="delete(item.key)">Delete</button>
+               
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+       <button class="btn btn-primary" (click)="open()">
+                      Create New Campaign
+                    </button>
+  </div>
+</div>
+
+<!-- <ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">
+      Close
+    </button>
+  </div>
+</ng-template> -->

@@ -1,0 +1,47 @@
+<div class="row match-height">
+    <div class="col-xl-12 col-lg-12 col-12">
+        <div class="card shopping-cart">
+            <div class="card-header pb-2">
+                <h4 class="card-title mb-1">Admin Users</h4>
+            </div>
+            <div class="card-content">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table text-center m-0">
+                            <thead>
+                                <tr>
+                                
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+    
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of items">
+                                 
+                                   
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.email }}</td>
+                                    <td>{{ item.role }}</td>
+                                   
+<!-- 
+                                    <td>
+                                        <button class="btn btn-primary" (click)="details(item.key)">
+                                            Details
+                                        </button>
+                                    </td> -->
+                                    <button class="btn btn-danger" (click)="delete(item.key)" *ngIf="role == 'Super Admin' || role == 'super_admin' ">Delete</button>
+                                 
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="open()" *ngIf="role == 'Super Admin' || role == 'super_admin'">Add New User</button>
+</div>

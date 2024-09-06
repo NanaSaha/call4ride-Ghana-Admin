@@ -1,0 +1,66 @@
+<div class="row match-height">
+  <div class="col-xl-12 col-lg-12 col-12">
+    <div class="card shopping-cart">
+      <div class="card-header pb-2">
+        <h4 class="card-title mb-1">Riders</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table text-center m-0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items">
+       
+                  <td>{{ item.unique_number }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.phone }}</td>
+
+                  <div *ngIf="role == 'Super Admin' || role == 'super_admin' ">
+                  <td>
+                    <button class="btn btn-danger" (click)="deleteComm(item.key)">
+                      Delete
+                    </button>
+                  </td>
+
+                </div>
+
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">
+      Close
+    </button>
+  </div>
+</ng-template>

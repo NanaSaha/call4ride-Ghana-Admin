@@ -1,0 +1,90 @@
+<div class="row match-height">
+  <div class="col-xl-12 col-lg-12 col-12">
+    <div class="card shopping-cart">
+      <div class="card-header pb-2">
+        <h4 class="card-title mb-1">Drivers</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table text-center m-0">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Status</th>
+                   <th>Online Status</th>
+                    <th>Subscription Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items">
+                  <td *ngIf="item.pic != undefined">
+                    <img class="height-50" src="{{ item.pic }}" />
+                  </td>
+                  <td *ngIf="item.pic == undefined">No image</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.phone }}</td>
+                  <td *ngIf="item.state == false">Not Approved</td>
+                  <td *ngIf="item.state == true">Approved</td>
+                  <td  *ngIf="item.isOffline == true">Offline</td>
+                  <td  *ngIf="item.isOffline == false">Online</td>
+                  <td *ngIf="item.has_subscribed == true">Subscribed</td>
+                  <td *ngIf="item.has_subscribed == false">Not Subscribed</td>
+                  <td>
+                    <button class="btn btn-primary" (click)="details(item.key)">
+                      Details
+                    </button>
+                  </td>
+                  <div *ngIf="role == 'Super Admin' || role == 'super_admin' ">
+                  <td *ngIf="item.state == false">
+                    <button
+                      class="btn btn-info"
+                      (click)="approveDriver(item.key)"
+                    >
+                      Approve Driver
+                    </button>
+                  </td>
+
+                  <td *ngIf="item.state == true">
+                    <button
+                      class="btn btn-danger"
+                      (click)="blockDriver(item.key)"
+                    >
+                      Block/Disable Driver
+                    </button>
+                  </td>
+                  </div>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">
+      Close
+    </button>
+  </div>
+</ng-template>

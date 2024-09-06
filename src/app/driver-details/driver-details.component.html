@@ -1,0 +1,70 @@
+<div class="row1 match-height">
+  <div class="col-xl-12 col-lg-12 col-12">
+    <div class="card shopping-cart">
+      <div class="card-header pb-2">
+        <h4 class="card-title mb-1">Details</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body p-0">
+          <div class="row1" *ngFor="let event of eventList">
+            <div class="col1">
+              <h4>License Image</h4>
+              <img [src]="event.license_picture" class="imgSize" />
+            </div>
+            <div class="col1">
+              <h4>Picture of Car</h4>
+              <img [src]="event.car_picture" class="imgSize" />
+            </div>
+
+            <div class="col1">
+              <h4>Driver Picture</h4>
+              <img [src]="event.driver_picture" class="imgSize" />
+            </div>
+            <div class="col1">
+              <h4>DVLA / Insurance</h4>
+              <img [src]="event.insurance_picture" class="imgSize" />
+            </div>
+          </div>
+
+          <h1 style="text-align: center; color: #fbb91d">Other Details:</h1>
+          <div *ngFor="let event of eventList">
+            <div>
+              <h4 style="text-align: center">
+                Car Name:
+                <span style="color: #fbb91d"> {{ event.carName }}</span>
+              </h4>
+            </div>
+            <div>
+              <h4 style="text-align: center">
+                Car Model:<span style="color: #fbb91d">
+                  {{ event.carmodel }}</span
+                >
+              </h4>
+            </div>
+
+            <div>
+              <h4 style="text-align: center">
+                Car Year:<span style="color: #fbb91d">
+                  {{ event.caryear | date: "mediumDate" }}
+                </span>
+              </h4>
+            </div>
+
+            <div>
+              <h4 style="text-align: center">
+                Car Plate: <span style="color: #fbb91d">{{ event.plate }}</span>
+              </h4>
+            </div>
+
+            <div>
+              <h4 style="text-align: center">
+                License Number:
+                <span style="color: #fbb91d"> {{ event.license }} </span>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

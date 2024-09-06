@@ -1,0 +1,87 @@
+<div class="row match-height">
+  <div class="col-xl-8 col-lg-8 col-8">
+    <div class="card shopping-cart">
+      <div class="card-header pb-2">
+        <h4 class="card-title mb-1">Pricing</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table text-center m-0">
+              <thead>
+                <tr>
+                  <th>Base fare</th>
+                  <th>Price Per Km</th>
+                  <th>Surge Prices</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items">
+                  <td>GHc {{ item.base }}</td>
+                  <td>GHc {{ item.pricePerKm }}</td>
+                  <td>GHc {{ item.surge }}</td>
+                  <td>{{ item.date }}</td>
+
+                  <div *ngIf="role == 'Super Admin' || role == 'super_admin' ">
+<td>
+                  <button class="btn btn-info" (click)="edit(item.key)">Edit</button> <br>
+
+                  <button class="btn btn-danger" (click)="delete(item.key)">Delete</button>
+                  </td>
+</div>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="role == 'Super Admin' || role == 'super_admin' ">
+
+    <button class="btn btn-primary" (click)="open()">Add Pricing</button>
+    </div>
+  </div>
+
+
+  <div class="col-xl-4 col-lg-4 col-4">
+    <div class="card shopping-cart">
+      <div class="card-header pb-2">
+        <h4 class="card-title mb-1">Drivers Commision Setup</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table text-center m-0">
+              <thead>
+                <tr>
+                  <th>Percentage</th>
+                  <th>Earn</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items2">
+                  <td> Ghc{{ item.percentage }}</td>
+                  <td>GHc {{ item.earn }}</td>
+                  <div *ngIf="role == 'Super Admin' || role == 'super_admin' ">
+
+                    <td> <button class="btn btn-info" (click)="editcom(item.key)">Edit</button>
+                    <br>
+                  <button class="btn btn-danger" (click)="deleteComm(item.key)">Delete</button>
+                 </td>
+                
+
+                  
+                  </div>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="role == 'Super Admin' || role == 'super_admin' ">
+    <button class="btn btn-primary" (click)="openComm()">Add Commission</button>
+    </div>
+  </div>
+</div>

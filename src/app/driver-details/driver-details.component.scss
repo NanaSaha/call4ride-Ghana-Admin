@@ -1,0 +1,25 @@
+.col1{
+    width: 25%;
+    margin-left: 20%;
+}
+
+.row1{
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.imgSize{
+
+    width: 50%;
+    height: 50%;
+}
+
+@media (max-width: 576px) {
+.col1{
+    width: 100%;
+    margin-left: 20%;
+}
+  }
