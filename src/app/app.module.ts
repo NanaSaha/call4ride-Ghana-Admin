@@ -48,22 +48,15 @@ import { UsersComponent } from './users/users.component';
 import { NewUserComponent } from './new-user/new-user.component';
 
 var firebaseConfig = {
-  // apiKey: "AIzaSyApjpwWIXFsAn6WWgauNG93bHdAY126eVw",
-  // authDomain: "ghana-c4r.firebaseapp.com",
-  // projectId: "ghana-c4r",
-  // storageBucket: "ghana-c4r.appspot.com",
-  // databaseURL: "https://ghana-c4r-default-rtdb.firebaseio.com",
-  // messagingSenderId: "516821551729",
-  // appId: "1:516821551729:web:04f1a30ca01b8acc9d29d0",
-  // measurementId: "G-2Y04YP8P7Q"
+ 
 
-  apiKey: "AIzaSyDtQGdYGuIQ7f-r9JqWBBj7q6RJJ9595nI",
-  authDomain: "call4ride-2fe35.firebaseapp.com",
-  projectId: "call4ride-2fe35",
-  storageBucket: "call4ride-2fe35.appspot.com",
-  databaseURL: "https://call4ride-2fe35-default-rtdb.firebaseio.com",
-  messagingSenderId: "1092796986980",
-  appId: "1:1092796986980:web:24d071186167016803d171",
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  databaseURL: "",
+  messagingSenderId: "",
+  appId: "",
   measurementId: "G-EPD48CQC9J"
 };
 
